@@ -12,7 +12,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         && \
     rm -rf /var/lib/apt/lists/*
 
-COPY . /cv_workshop
 RUN /root/anaconda3/envs/cntk-py35/bin/conda install -y -n cntk-py35 cython boost
 RUN bash -c 'source /cntk/activate-cntk && pip install opencv-python easydict pyyaml dlib'
 RUN bash -c 'source /cntk/activate-cntk && cd /cntk/Examples/Image/Detection/utils && git clone https://github.com/CatalystCode/py-faster-rcnn.git && cd py-faster-rcnn/lib && python setup.py build_ext --inplace'
@@ -21,8 +20,10 @@ RUN cp /cntk/Examples/Image/Detection/utils/py-faster-rcnn/lib/utils/cython_bbox
 RUN cp /cntk/Examples/Image/Detection/utils/py-faster-rcnn/lib/nms/gpu_nms.cpython-35m-x86_64-linux-gnu.so /cntk/Examples/Image/Detection/utils/cython_modules/ 
 RUN cp /cntk/Examples/Image/Detection/utils/py-faster-rcnn/lib/nms/cpu_nms.cpython-35m-x86_64-linux-gnu.so /cntk/Examples/Image/Detection/utils/cython_modules/ 
 
-RUN git config --system core.longpaths true
-RUN pip install "git+https://github.com/Azure/azure-sdk-for-python#egg=azure-cognitiveservices-vision-customvision&subDirectory=azure-cognitiveservices-vision-customvision"
-
-RUN cd /cv_workshop
-RUN jupyter notebook --ip=0.0.0.0 --allow-root --no-browser
+WORKDIR /cntk/Examples/Image/Detection/FasterRCNN
+RUN bash -c 'git config --system core.longpaths true'
+RUN bash -c 'source /cntk/activate-cntk && pip install "git+https://github.com/Azure/azure-sdk-for-python#egg=azure-cognitiveservices-vision-customvision&subdirectory=azure-cognitiveservices-vision-customvision"'
+COPY . /cv_workshop
+WORKDIR /cv_workshop
+RUN python -u download_data_and_models.py  
+CMD bash -c 'source /cntk/activate-cntk && jupyter-notebook --ip=0.0.0.0 --allow-root --no-browser'
