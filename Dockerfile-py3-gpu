@@ -23,5 +23,5 @@ RUN bash -c 'git config --system core.longpaths true'
 RUN bash -c 'source /cntk/activate-cntk && pip install "git+https://github.com/Azure/azure-sdk-for-python#egg=azure-cognitiveservices-vision-customvision&subdirectory=azure-cognitiveservices-vision-customvision"'
 COPY . /cv_workshop
 WORKDIR /cv_workshop
-RUN python -u utils.py  
+RUN bash -c 'source /cntk/activate-cntk && python -u cvworkshop_utils.py'  
 CMD bash -c 'source /cntk/activate-cntk && jupyter-notebook --ip=0.0.0.0 --allow-root --no-browser'
