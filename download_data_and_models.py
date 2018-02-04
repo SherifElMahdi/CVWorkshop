@@ -47,7 +47,7 @@ def download_beverage_models():
         try:
             print('Extracting ' + filename + '...')
             with zipfile.ZipFile(filename) as myzip:
-                myzip.extractall(dataset_folder)
+                myzip.extractall(model_folder)
         finally:
             os.remove(filename)
         print('Done.')
