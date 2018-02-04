@@ -39,7 +39,7 @@ nvidia-docker docker run -it -p 8888:8888 --expose=8888 cv
 Copy and store the notebook token key that is displayed after the notebook server is running
 
 ### Step 6
-Navigate to http://localhost:8888/tree and enter the token you copies
+Navigate to http://localhost:8888/tree and enter the token you copied.
 
 ### Step 7 
 Click on the "Computer Vision Workshop Intro" notebook and confirm that everthing loads as expected
