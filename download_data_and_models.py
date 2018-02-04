@@ -70,15 +70,6 @@ def download_beverage_data():
             print('Extracting ' + filename + '...')
             with zipfile.ZipFile(filename) as myzip:
                 myzip.extractall(dataset_folder)
-            # if platform != "win32":
-            #     testfile  = os.path.join(dataset_folder, "Beverages", "test.txt")
-            #     unixfile = os.path.join(dataset_folder, "Beverages", "test_unix.txt")
-            #     out = open(unixfile, 'w')
-            #     with open(testfile) as f:
-            #         for line in f:
-            #             out.write(line.replace('\\', '/'))
-            #     out.close()
-            #     shutil.move(unixfile, testfile)
         finally:
             os.remove(filename)
         print('Done.')

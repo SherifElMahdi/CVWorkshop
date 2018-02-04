@@ -1,4 +1,4 @@
-FROM microsoft/cntk:2.3-cpu-python3.5
+FROM microsoft/cntk:2.4-cpu-python3.5
 
 LABEL maintainer "MICROSOFT CORPORATION"
 
@@ -25,5 +25,5 @@ RUN bash -c 'git config --system core.longpaths true'
 RUN bash -c 'source /cntk/activate-cntk && pip install "git+https://github.com/Azure/azure-sdk-for-python#egg=azure-cognitiveservices-vision-customvision&subdirectory=azure-cognitiveservices-vision-customvision"'
 COPY . /cv_workshop
 WORKDIR /cv_workshop
-RUN python -u download_data_and_models.py  
+RUN python -u RUN python -u utils.py  
 CMD bash -c 'source /cntk/activate-cntk && jupyter-notebook --ip=0.0.0.0 --allow-root --no-browser'
