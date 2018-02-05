@@ -5,7 +5,7 @@ This computer vision workshop is based on the work detecting complex policies in
 
 # Setup Instructions
 ### Step 1 
-Download and Install the [docker](https://www.docker.com) or if you have a gpu the nvidia-docker client.
+Download and Install the [docker](https://www.docker.com) or if you have a gpu and unix based os the nvidia-docker client.
 
 ### Step 2 
 Clone or download the Computer Vision Workshop repo
