@@ -10,29 +10,37 @@ Download and Install the [docker](https://www.docker.com) or if you have a gpu a
 ### Step 2 
 Clone or download the Computer Vision Workshop repo
 
-### Step 3
-Build the workshop docker image using the following command for either cpu or gpu.
+### Step 3 
 
-**CPU**
+**OPTION A From TAR File**
+Load from the tar file with the following command 
+```
+docker load < cv_workshop.tar
+```
+
+**OPTION B NO TAR File**
+If you don't have tar file. Build the workshop docker image using the following command for either cpu or gpu.
+
+CPU
 ```
 docker build -f Dockerfile-py3-cpu . -t cv
 ```
 
-**GPU**
+GPU
 ```
-nvidia-docker build -f Dockerfile-py3-gpu .
+nvidia-docker build -f Dockerfile-py3-gpu . -t cv
 ```
 ### Step 4
-Run the image you built using the following command for either cpu or gpu to start the notebook server.
+Run the image you built using the following command for either cpu or gpu to start the notebook server. If you are on windows make sure you are running linux containers.
 
 **CPU**
 ```
-docker run -it -p 8888:8888 --expose=8888 cv
+sudo docker run -it -v /var/run/docker.sock:/var/run/docker.sock -p 8888:8888 --expose=8888 cv
 ```
 
 **GPU**
 ```
-nvidia-docker docker run -it -p 8888:8888 --expose=8888 cv
+sudo nvidia-docker run -it  -v /var/run/docker.sock:/var/run/docker.sock -p 8888:8888 --expose=8888 cv
 ```
 
 ### Step 5 
