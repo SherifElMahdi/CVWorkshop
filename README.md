@@ -16,7 +16,7 @@ git clone https://github.com/SherifElMahdi/CVWorkshop.git
 
 ### Step 3 
 
-Ask your proctor for the TAR file then load from it using the following command 
+Ask your proctor for the TAR file then load it using the following command:
 ```
 docker load < cv_workshop.tar
 ```
