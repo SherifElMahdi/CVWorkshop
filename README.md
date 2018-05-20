@@ -1,4 +1,4 @@
-# Computer Vision Workshop
+﻿# Computer Vision Workshop
 In this workshop we'll be exploring the topic of Computer Vision, through deep diving into a recent real world customer scenario. We’ll compare different approaches and demonstrate how the open source [VoTT](github.com/Microsoft/VoTT) (Visual Object Tagging Tool) can be used to easily annotate image and quickly iterate object detection models for complex image classification scenarios. 
  
 This computer vision workshop is based on the work detecting complex policies in the following [real life code story](https://www.microsoft.com/developerblog/2017/07/31/using-object-detection-complex-image-classification-scenarios/)
@@ -8,28 +8,19 @@ This computer vision workshop is based on the work detecting complex policies in
 Download and Install the [docker](https://www.docker.com) or if you have a gpu and unix based os the nvidia-docker client.
 
 ### Step 2 
-Clone or download the Computer Vision Workshop repo
+
+Clone the repo
+```
+git clone https://github.com/SherifElMahdi/CVWorkshop.git
+```
 
 ### Step 3 
 
-**OPTION A From TAR File**
-Load from the tar file with the following command 
+Ask your proctor for the TAR file then load from it using the following command 
 ```
 docker load < cv_workshop.tar
 ```
 
-**OPTION B NO TAR File**
-If you don't have tar file. Build the workshop docker image using the following command for either cpu or gpu.
-
-CPU
-```
-docker build -f Dockerfile-py3-cpu . -t cv
-```
-
-GPU
-```
-nvidia-docker build -f Dockerfile-py3-gpu . -t cv
-```
 ### Step 4
 Run the image you built using the following command for either cpu or gpu to start the notebook server. If you are on windows make sure you are running linux containers.
 
